@@ -21,10 +21,24 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, "Please enter product category"],
+      enum: ["men", "women", "kids", "accessories"],
     },
     image: {
       type: String, // URL or path
       required: [true, "Please add a product image"],
+    },
+    stock: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    sizes: {
+      type: [String],
+      default: ["S", "M", "L", "XL"],
+    },
+    colors: {
+      type: [String],
+      default: [],
     },
   },
   { timestamps: true }

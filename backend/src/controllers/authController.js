@@ -14,7 +14,7 @@ const generateToken = (userId) => {
 // @access Public
 exports.registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -23,14 +23,15 @@ exports.registerUser = async (req, res) => {
     }
 
     // Create new user
-    const user = await User.create({ name, email, password });
+    const user = await User.create({ firstName, lastName, email, password });
 
     // Generate token
     const token = generateToken(user._id);
 
     res.status(201).json({
       _id: user._id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       isAdmin: user.isAdmin,
       token,
@@ -65,7 +66,8 @@ exports.loginUser = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       isAdmin: user.isAdmin,
       token,

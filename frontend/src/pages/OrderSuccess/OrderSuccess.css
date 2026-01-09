@@ -1,0 +1,97 @@
+/* Order Success Page Styles */
+
+.order-success-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.success-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-success);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-title {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.success-subtitle {
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-6);
+}
+
+.order-info {
+  background-color: var(--color-gray-100);
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.order-id {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.order-status {
+  font-size: var(--text-sm);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.success-message {
+  margin-bottom: var(--space-8);
+}
+
+.success-message p {
+  color: var(--color-gray-600);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.success-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .success-actions {
+    flex-direction: column;
+  }
+}

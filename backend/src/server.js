@@ -34,14 +34,15 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/upload", uploadRoutes);
 
+// Serve uploaded files
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
 // 404 Not Found Handler
 app.use((req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
   res.status(404);
   next(error);
 });
-
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 
 // Centralized Error Handling Middleware
